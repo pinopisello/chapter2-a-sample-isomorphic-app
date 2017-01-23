@@ -1,0 +1,13 @@
+Git ha due repo :
+
+origin :https://github.com/pinopisello/chapter2-a-sample-isomorphic-app.git.git
+
+upstream:https://github.com/isomorphic-dev-js/chapter2-a-sample-isomorphic-app.git
+
+
+Per tenere origin aggiornato con main:
+
+git pull upstream master
+
+git push origin master
+

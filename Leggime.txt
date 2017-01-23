@@ -1,0 +1,37 @@
+Npm scripts:
+
+
+1)############   npm run build:server
+
+esegue babel src -d dist.
+
+transpila tutti i files in src e li mette in dist
+
+
+
+2)###########  npm run build:browser
+
+Esegue webpack ponendo in dist il bundle 'browser.js'
+
+
+
+
+3)###########  npm run start
+
+Esegue node dist/server.js [gia' transpilato da 1#]
+
+In pratica esegue express server con i seguenti middlewares:
+
+a)
+
+
+
+4)###########  npm run start-debug
+
+Esegue start in debug mode.
+
+
+
+
+
+
