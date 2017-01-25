@@ -1,34 +1,48 @@
 Npm scripts:
 
 
-1)############   npm run build:server
+0)############   npm run clean
 
-esegue babel src -d dist.
+esegue rm -rf dist
 
-transpila tutti i files in src e li mette in dist
+cancella il dist folder
 
+1)###########  npm run build:browser
 
-
-2)###########  npm run build:browser
-
-Esegue webpack ponendo in dist il bundle 'browser.js'
+Esegue webpack di /src/main.jsx (incluse le dependencies...) ponendo il risultato 'dist/browser.js'
 
 
+2)############   npm run build:server  [far girare build:browser prima altrimenti machera' file browser.js in dist!!]
+
+esegue 'babel src -d dist'.
+
+Transpila tutti i files in src e li mette in dist
 
 
 3)###########  npm run start
 
-Esegue node dist/server.js [gia' transpilato da 1#]
+Esegue 'node dist/app.js' 
 
-In pratica esegue express server con i seguenti middlewares:
+app.js :in pratica esegue express server con i seguenti middlewares:
 
-a)
+a)express.static(__dirname): serve tutti i files statici in dist come dist/browser.js (webpack)
+
+b)"/recipes" ritorna  file dist/data/recipes.json 
+
+c)"/featured" ritorna file dist/data/featured.json
+
+d)"/" invoca /middleware/renderView.jsx 
+   inizializza redux store
+   invia actions.getHomePageData() action a redux
+   pesca store.state 
+   rende lato server component app.jsx ReactDOM.renderToString
+
+4)###########  npm run start-debug [funziona solo con 'nvm use v6.3.1']
+
+Esegue 'babel-node-debug src/app.js' start in debug mode.
 
 
 
-4)###########  npm run start-debug
-
-Esegue start in debug mode.
 
 
 

@@ -2,15 +2,18 @@ import express from 'express';
 import fs from 'fs';
 import renderViewMiddleware from './middleware/renderView'
 
+
+console.log(`__dirname = ${__dirname}`);
 // init the app
 const app = express();
 
 // setup static files, server browser.js (webpacked file) from root
 app.use(express.static(__dirname));
 
+
 app.get('/recipes', (req, res) => {
   // Read and open the recipes json file
-  fs.readFile(`${__dirname}/../data/recipes.json`, 'utf8', (err, data) => {
+  fs.readFile(`${__dirname}/data/recipes.json`, 'utf8', (err, data) => {
 
     // Error handling - return an error
     if (err) {
@@ -25,7 +28,7 @@ app.get('/recipes', (req, res) => {
 
 app.get('/featured', (req, res) => {
   // Read and open the featured recipe json file
-  fs.readFile(`${__dirname}/../data/featured.json`, 'utf8', (err, data) => {
+  fs.readFile(`${__dirname}/data/featured.json`, 'utf8', (err, data) => {
 
     // Error handling - return an error
     if (err) {

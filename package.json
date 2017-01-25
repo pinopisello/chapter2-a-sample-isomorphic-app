@@ -8,9 +8,8 @@
     "copy:data": "cp -r ./data/ ./dist/data/",
     "build:server": "babel src -d dist",
     "build:browser": "webpack",
-    "prestart": "npm run build:browser",
-    "start": "node src/server.js",
-    "start-debug": "babel-node-debug src/server.es6",
+    "start": "node dist/app.js",
+    "start-debug": "babel-node-debug dist/server.js",
     "examples": "node examples-server.js"
   },
   "author": "elyseko",

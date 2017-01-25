@@ -11,8 +11,8 @@ export default class HTML extends React.Component {
         </head>
         <body>
           <div id="react-content"
-               dangerouslySetInnerHTML={{__html: this.props.html}}/>
-          <script dangerouslySetInnerHTML={{__html: this.props.data}}/>
+               dangerouslySetInnerHTML={{__html: this.props.html}}/>   {/* this.props.html e' il preprendered lato server */}
+          <script dangerouslySetInnerHTML={{__html: this.props.data}}/>{/* this.props.data  e' il redux state come json object */}
           <script src="/browser.js"/>
         </body>
       </html>
